@@ -29,9 +29,9 @@ export default function Signin() {
   const onSubmit: SubmitHandler<ILoginFormInputs> = async (data, e: any) => {
     e.preventDefault();
 
-    await fetch(`${process.env.NEST_URL}/auth/login`, {
+    await fetch(`${process.env.REACT_APP_NEXT_URL}/auth/login`, {
       method: "POST",
-      body: JSON.stringify({ email: "email", password: "password" }),
+      body: JSON.stringify({ email: data.email, password: data.password }),
       mode: "cors",
       credentials: "include",
       cache: "no-store",
@@ -39,7 +39,23 @@ export default function Signin() {
         "Content-Type": "application/json",
       },
     })
-      .then(() => {
+      .then((res) => {
+        const userText = res.text();
+        return userText;
+      })
+      .then((res) => {
+        const user = JSON.parse(res);
+        sessionStorage.setItem(
+          "user",
+          JSON.stringify({
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            token: user.token,
+            refreshToken: user.refreshToken,
+          })
+        );
         navigate("/");
       })
       .catch((err) => {

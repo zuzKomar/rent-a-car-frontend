@@ -21,7 +21,9 @@ const schema = yup.object({
 export default function UserPage() {
   const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState<User>();
-  const user: any = sessionStorage.getItem("user");
+  const [user, setUser] = useState(
+    JSON.parse(sessionStorage.getItem("user") || '""')
+  );
   const token = user.token;
   const email = user.email;
   let loginCredentialsChanged = false;
@@ -36,7 +38,7 @@ export default function UserPage() {
 
   useEffect(() => {
     if (user) {
-      fetch(`/api/fetch-user-data`, {
+      fetch(`${process.env.REACT_APP_NEXT_URL}/users/${user.email}`, {
         mode: "cors",
         cache: "no-store",
         headers: {
@@ -78,7 +80,7 @@ export default function UserPage() {
       loginCredentialsChanged = true;
     }
 
-    fetch(`/api/update-user`, {
+    fetch(`${process.env.REACT_APP_NEXT_URL}/users/${user.id}`, {
       method: "PATCH",
       body: JSON.stringify(updateUserDto),
       mode: "cors",

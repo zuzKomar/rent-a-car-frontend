@@ -22,8 +22,9 @@ export default function Cars() {
   const [showTableFilters, setShowTableFilters] = useState(false);
   const [carData, setCarData] = useState<Car[]>([]);
   const [noCars, setNoCars] = useState<boolean>();
-
-  const user: any = sessionStorage.getItem("user");
+  const [user, setUser] = useState(
+    JSON.parse(sessionStorage.getItem("user") || '""')
+  );
   const token = user.token;
 
   const columns = [
@@ -37,11 +38,13 @@ export default function Cars() {
 
   useEffect(() => {
     if (user) {
-      fetch(`/api/fetch-all-cars`, {
+      fetch(`${process.env.REACT_APP_NEXT_URL}/cars`, {
+        method: "GET",
         mode: "cors",
         cache: "no-store",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
           Authorization: "Bearer " + token,
         },
       })
@@ -102,7 +105,7 @@ export default function Cars() {
     const pathname = url.pathname.slice(1) + newUrl.slice(0, -1);
 
     if (pathname.length > 5) {
-      await fetch(`/api/filter-cars`, {
+      await fetch(`${process.env.REACT_APP_NEXT_URL}/${pathname}`, {
         method: "POST",
         mode: "cors",
         headers: {
@@ -128,7 +131,7 @@ export default function Cars() {
   }
 
   async function clearFiltersHandler() {
-    await fetch(`/api/fetch-all-cars`, {
+    await fetch(`${process.env.REACT_APP_NEXT_URL}/cars`, {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",

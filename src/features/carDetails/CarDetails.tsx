@@ -13,14 +13,16 @@ const CarDetails = () => {
   const { carId } = useParams();
   const [open, setOpen] = useState(false);
   const [carData, setCarData] = useState<CarData>();
-  const photoPath = `/static/${carData ? carData.photo : ""}.png`;
 
-  const user: any = sessionStorage.getItem("user");
+  const [user, setUser] = useState(
+    JSON.parse(sessionStorage.getItem("user") || '""')
+  );
   const token = user.token;
+  const photoPath = `/static/${carData ? carData.photo : ""}.png`;
   const userId = user.id;
 
   useEffect(() => {
-    fetch(`/api/fetch-selected-car`, {
+    fetch(`${process.env.REACT_APP_NEXT_URL}/${carId}`, {
       method: "POST",
       mode: "cors",
       cache: "no-store",
@@ -28,7 +30,6 @@ const CarDetails = () => {
         "Content-Type": "application/json",
         Authorization: "Bearer " + token,
       },
-      body: JSON.stringify({ carId: carId }),
     })
       .then((res) => res.json())
       .then((res) => setCarData(res.body));
@@ -67,12 +68,13 @@ const CarDetails = () => {
         "T08:00:00.000Z",
     };
 
-    fetch(`/api/rent-a-car`, {
+    fetch(`${process.env.REACT_APP_NEXT_URL}/rents`, {
       method: "POST",
       body: JSON.stringify(createRentDto),
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer " + token,
       },
     })

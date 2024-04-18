@@ -19,7 +19,9 @@ export default function RentsPage() {
   const [noRents, setNoRents] = useState<boolean>();
   const navigate = useNavigate();
 
-  const user: any = sessionStorage.getItem("user");
+  const [user, setUser] = useState(
+    JSON.parse(sessionStorage.getItem("user") || '""')
+  );
   const token = user.token;
 
   const columns = [
@@ -33,11 +35,12 @@ export default function RentsPage() {
 
   useEffect(() => {
     if (user) {
-      fetch(`/api/fetch-all-rents`, {
+      fetch(`${process.env.REACT_APP_NEXT_URL}/users/${user.email}`, {
         mode: "cors",
         cache: "no-store",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
           Authorization: "Bearer " + token,
         },
       })
@@ -72,12 +75,13 @@ export default function RentsPage() {
       damagedCar: true,
     };
 
-    fetch(`/api/report-car-damage`, {
+    fetch(`${process.env.REACT_APP_NEXT_URL}/rents/${rentId}`, {
       method: "PATCH",
       body: JSON.stringify(updateRentDto),
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer " + token,
       },
     })
