@@ -1,0 +1,6 @@
+{
+  "test": "/(jsx|js)?$/",
+  "include": "resolve(__dirname, './app')",
+  "loader": "babel-loader",
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}

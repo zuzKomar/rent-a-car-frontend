@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import UserPage from "./features/user/User";
+import RentsPage from "./features/rents/Rents";
+import Cars from "./features/cars/Cars";
+import CarDetails from "./features/carDetails/CarDetails";
+import Signin from "./features/auth/signin/Signin";
+import Signup from "./features/auth/signup/Signup";
+import HomePage from "./features/homepage/HomePage";
 
 function App() {
+  const user: any = sessionStorage.getItem("user");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {user ? (
+        <Routes>
+          <Route path="/" Component={() => <HomePage />} />
+          <Route path="/cars" Component={() => <Cars />} />
+          <Route path="/cars/:carId" Component={() => <CarDetails />} />
+          <Route path="/rents" Component={() => <RentsPage />} />
+          <Route path="/user" Component={() => <UserPage />} />
+        </Routes>
+      ) : (
+        <Routes>
+          <Route path="/" Component={() => <HomePage />} />
+          <Route path="/auth/signin" Component={() => <Signin />} />
+          <Route path="/auth/signup" Component={() => <Signup />} />
+        </Routes>
+      )}
+    </Router>
   );
 }
 
