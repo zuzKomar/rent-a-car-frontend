@@ -32,9 +32,8 @@ export default function Signin() {
     await fetch(`${process.env.REACT_APP_NEXT_URL}/auth/login`, {
       method: "POST",
       body: JSON.stringify({ email: data.email, password: data.password }),
-      mode: "cors",
+      mode: "no-cors",
       credentials: "include",
-      cache: "no-store",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
