@@ -80,6 +80,7 @@ export default function UserPage() {
       updateUserDto["password"] = data.password;
       loginCredentialsChanged = true;
     }
+    console.log();
 
     fetch(`${process.env.REACT_APP_NEXT_URL}/users/${user.id}`, {
       method: "PATCH",
