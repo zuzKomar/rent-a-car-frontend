@@ -105,7 +105,7 @@ export default function UserPage() {
   };
 
   return (
-    <PageContainer checkAuthorized={true}>
+    <PageContainer checkAuthorized>
       <h1>{editMode ? "Edit User Profile" : "User Profile"}</h1>
       <View
         UNSAFE_style={{ backgroundColor: "rgba(0,0,0,0.5)" }}

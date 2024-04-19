@@ -155,7 +155,7 @@ export default function Cars() {
   }
 
   return (
-    <PageContainer>
+    <PageContainer checkAuthorized>
       <h1>Available cars:</h1>
       <Flex direction="row" marginBottom="5px">
         <Button

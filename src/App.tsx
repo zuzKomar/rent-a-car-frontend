@@ -8,24 +8,17 @@ import Signup from "./features/auth/signup/Signup";
 import HomePage from "./features/homepage/HomePage";
 
 function App() {
-  const user: any = sessionStorage.getItem("user");
   return (
     <Router>
-      {user ? (
-        <Routes>
-          <Route path="/" Component={() => <HomePage />} />
-          <Route path="/cars" Component={() => <Cars />} />
-          <Route path="/cars/:carId" Component={() => <CarDetails />} />
-          <Route path="/rents" Component={() => <RentsPage />} />
-          <Route path="/user" Component={() => <UserPage />} />
-        </Routes>
-      ) : (
-        <Routes>
-          <Route path="/" Component={() => <HomePage />} />
-          <Route path="/auth/signin" Component={() => <Signin />} />
-          <Route path="/auth/signup" Component={() => <Signup />} />
-        </Routes>
-      )}
+      <Routes>
+        <Route path="/" Component={() => <HomePage />} />
+        <Route path="/cars" Component={() => <Cars />} />
+        <Route path="/cars/:carId" Component={() => <CarDetails />} />
+        <Route path="/rents" Component={() => <RentsPage />} />
+        <Route path="/user" Component={() => <UserPage />} />
+        <Route path="/auth/signin" Component={() => <Signin />} />
+        <Route path="/auth/signup" Component={() => <Signup />} />
+      </Routes>
     </Router>
   );
 }

@@ -126,7 +126,7 @@ const CarDetails = () => {
   }
 
   return (
-    <PageContainer checkAuthorized={true}>
+    <PageContainer checkAuthorized>
       <View UNSAFE_style={{ backgroundColor: "rgba(0,0,0,0.5)" }} width="70%">
         <Flex direction="row" justifyContent="space-evenly">
           <Flex direction="column" gap="size-150" wrap>

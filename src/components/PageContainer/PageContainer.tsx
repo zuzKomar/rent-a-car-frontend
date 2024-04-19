@@ -17,10 +17,11 @@ const PageContainer = ({
   const [unauthorized, setUnauthorized] = useState(false);
   const navigate = useNavigate();
 
-  const authorized = sessionStorage.getItem("token");
+  const user = sessionStorage.getItem("user");
+  console.log(user);
 
   useEffect(() => {
-    if (checkAuthorized && !authorized) {
+    if (checkAuthorized && !user) {
       setUnauthorized(true);
       navigate("/auth/signin");
     }

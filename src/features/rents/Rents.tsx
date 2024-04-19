@@ -90,7 +90,7 @@ export default function RentsPage() {
   }
 
   return (
-    <PageContainer checkAuthorized={true}>
+    <PageContainer checkAuthorized>
       <h1>Your rents</h1>
       {rents.length > 0 && !noRents && (
         <TableView
