@@ -17,7 +17,6 @@ const schema = yup.object({
 });
 
 export default function Signin() {
-  console.log(process.env.NODE_ENV);
   const navigate = useNavigate();
   const {
     register,
