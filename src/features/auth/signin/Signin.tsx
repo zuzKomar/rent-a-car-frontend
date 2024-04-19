@@ -31,13 +31,12 @@ export default function Signin() {
 
     await fetch(`${process.env.REACT_APP_NEXT_URL}/auth/login`, {
       method: "POST",
-      body: JSON.stringify({ email: data.email, password: data.password }),
       mode: "no-cors",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
       },
+      body: JSON.stringify({ email: data.email, password: data.password }),
     })
       .then((res) => {
         const userText = res.text();
