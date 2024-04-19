@@ -43,6 +43,7 @@ export default function UserPage() {
         cache: "no-store",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
           Authorization: "Bearer " + token,
         },
       })
@@ -87,6 +88,7 @@ export default function UserPage() {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer " + token,
       },
     })

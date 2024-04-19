@@ -110,6 +110,7 @@ export default function Cars() {
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
           Authorization: "Bearer " + token,
         },
         body: JSON.stringify({ pathname: pathname }),
@@ -135,6 +136,7 @@ export default function Cars() {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer " + token,
       },
     })

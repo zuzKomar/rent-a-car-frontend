@@ -82,6 +82,7 @@ export default function Signup() {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
     })
       .then((res) => res.json())
