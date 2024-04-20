@@ -35,7 +35,8 @@ export default function Signin() {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin":
+          "https://rent-a-car-frontend-three.vercel.app/",
       },
       body: JSON.stringify({ email: data.email, password: data.password }),
     })
