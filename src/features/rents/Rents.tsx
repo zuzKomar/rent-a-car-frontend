@@ -48,8 +48,9 @@ export default function RentsPage() {
           return res.json();
         })
         .then((data) => {
-          setRents([...data.body]);
-          setNoRents(data.body.length === 0);
+          console.log(data);
+          setRents([...data]);
+          setNoRents(data.length === 0);
         });
     }
   }, []);

@@ -52,9 +52,8 @@ export default function Cars() {
           return res.json();
         })
         .then((data) => {
-          console.log(data);
-          setCarData([...data.body]);
-          setNoCars(data.body.length === 0);
+          setCarData([...data]);
+          setNoCars(data.length === 0);
         });
     }
   }, []);
