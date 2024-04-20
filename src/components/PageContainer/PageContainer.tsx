@@ -18,7 +18,6 @@ const PageContainer = ({
   const navigate = useNavigate();
 
   const user = JSON.parse(sessionStorage.getItem("user") || '""');
-  console.log(user);
 
   useEffect(() => {
     if (checkAuthorized && !user.token) {
