@@ -39,7 +39,7 @@ export default function UserPage() {
 
   useEffect(() => {
     if (user) {
-      fetch(`${process.env.REACT_APP_NEST_URL}/users/${email}}`, {
+      fetch(`${process.env.REACT_APP_NEST_URL}/users/${email}`, {
         mode: "cors",
         cache: "no-store",
         headers: {
@@ -48,10 +48,12 @@ export default function UserPage() {
           Authorization: "Bearer " + token,
         },
       })
-        .then((res) => res.json())
         .then((res) => {
-          console.log(res);
-          setFormData(res);
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          setFormData(data);
         });
     }
   }, []);
