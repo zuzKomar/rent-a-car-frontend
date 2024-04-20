@@ -40,8 +40,9 @@ export default function Signin() {
       body: JSON.stringify({ email: data.email, password: data.password }),
     })
       .then((res) => {
-        console.log(res.json());
-        return res.json();
+        const userText = res.text();
+        console.log(userText);
+        return userText;
       })
       .then((res) => {
         const user = JSON.parse(res);
