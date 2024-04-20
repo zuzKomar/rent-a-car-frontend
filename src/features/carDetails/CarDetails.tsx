@@ -22,7 +22,7 @@ const CarDetails = () => {
   const userId = user.id;
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_NEXT_URL}/${carId}`, {
+    fetch(`${process.env.REACT_APP_NEST_URL}/${carId}`, {
       method: "POST",
       mode: "cors",
       cache: "no-store",
@@ -69,7 +69,7 @@ const CarDetails = () => {
         "T08:00:00.000Z",
     };
 
-    fetch(`${process.env.REACT_APP_NEXT_URL}/rents`, {
+    fetch(`${process.env.REACT_APP_NEST_URL}/rents`, {
       method: "POST",
       body: JSON.stringify(createRentDto),
       mode: "cors",

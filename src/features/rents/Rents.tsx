@@ -35,7 +35,7 @@ export default function RentsPage() {
 
   useEffect(() => {
     if (user) {
-      fetch(`${process.env.REACT_APP_NEXT_URL}/users/${user.email}`, {
+      fetch(`${process.env.REACT_APP_NEST_URL}/users/${user.email}`, {
         mode: "cors",
         cache: "no-store",
         headers: {
@@ -75,7 +75,7 @@ export default function RentsPage() {
       damagedCar: true,
     };
 
-    fetch(`${process.env.REACT_APP_NEXT_URL}/rents/${rentId}`, {
+    fetch(`${process.env.REACT_APP_NEST_URL}/rents/${rentId}`, {
       method: "PATCH",
       body: JSON.stringify(updateRentDto),
       mode: "cors",

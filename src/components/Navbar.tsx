@@ -8,16 +8,16 @@ const Navbar = () => {
   const user: any = sessionStorage.getItem("user");
 
   const handleLogout = async () =>
-    await fetch(`${process.env.NEST_URL}/auth/login`, {
+    await fetch(`${process.env.REACT_APP_NEST_URL}/auth/login`, {
       method: "POST",
-      body: JSON.stringify({ email: "email", password: "password" }),
-      mode: "cors",
-      credentials: "include",
-      cache: "no-store",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
       },
+      mode: "cors",
+      credentials: "include",
+      cache: "no-store",
+      body: JSON.stringify({ email: "email", password: "password" }),
     })
       .then(() => {
         navigate("/");

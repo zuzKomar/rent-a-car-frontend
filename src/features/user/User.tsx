@@ -38,7 +38,7 @@ export default function UserPage() {
 
   useEffect(() => {
     if (user) {
-      fetch(`${process.env.REACT_APP_NEXT_URL}/users/${user.email}`, {
+      fetch(`${process.env.REACT_APP_NEST_URL}/users/${user.email}`, {
         mode: "cors",
         cache: "no-store",
         headers: {
@@ -81,7 +81,7 @@ export default function UserPage() {
       loginCredentialsChanged = true;
     }
 
-    fetch(`${process.env.REACT_APP_NEXT_URL}/users/${user.id}`, {
+    fetch(`${process.env.REACT_APP_NEST_URL}/users/${user.id}`, {
       method: "PATCH",
       body: JSON.stringify(updateUserDto),
       mode: "cors",

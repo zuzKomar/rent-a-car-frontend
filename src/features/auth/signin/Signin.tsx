@@ -29,12 +29,13 @@ export default function Signin() {
   const onSubmit: SubmitHandler<ILoginFormInputs> = async (data, e: any) => {
     e.preventDefault();
 
-    await fetch(`${process.env.REACT_APP_NEXT_URL}/auth/login`, {
+    await fetch(`${process.env.REACT_APP_NEST_URL}/auth/login`, {
       method: "POST",
-      mode: "no-cors",
+      mode: "cors",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({ email: data.email, password: data.password }),
     })

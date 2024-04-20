@@ -38,7 +38,7 @@ export default function Cars() {
 
   useEffect(() => {
     if (user) {
-      fetch(`${process.env.REACT_APP_NEXT_URL}/cars`, {
+      fetch(`${process.env.REACT_APP_NEST_URL}/cars`, {
         method: "GET",
         mode: "cors",
         cache: "no-store",
@@ -105,7 +105,7 @@ export default function Cars() {
     const pathname = url.pathname.slice(1) + newUrl.slice(0, -1);
 
     if (pathname.length > 5) {
-      await fetch(`${process.env.REACT_APP_NEXT_URL}/${pathname}`, {
+      await fetch(`${process.env.REACT_APP_NEST_URL}/${pathname}`, {
         method: "POST",
         mode: "cors",
         headers: {
@@ -132,7 +132,7 @@ export default function Cars() {
   }
 
   async function clearFiltersHandler() {
-    await fetch(`${process.env.REACT_APP_NEXT_URL}/cars`, {
+    await fetch(`${process.env.REACT_APP_NEST_URL}/cars`, {
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
