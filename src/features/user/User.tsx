@@ -15,7 +15,7 @@ const schema = yup.object({
   phone: yup.string().required().min(9).max(15),
   email: yup.string().email(),
   password: yup.string().min(0).max(50),
-  confirmPassword: yup.string().oneOf([yup.ref("password"), ""]),
+  confirmPassword: yup.string().oneOf([yup.ref("password"), "{}"]),
 });
 
 export default function UserPage() {
