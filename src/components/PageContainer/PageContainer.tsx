@@ -17,11 +17,11 @@ const PageContainer = ({
   const [unauthorized, setUnauthorized] = useState(false);
   const navigate = useNavigate();
 
-  const user = JSON.parse(sessionStorage.getItem("user") || "");
+  const user = JSON.parse(sessionStorage.getItem("user") || "{}");
   console.log(user);
 
   useEffect(() => {
-    if (checkAuthorized && !user) {
+    if (checkAuthorized && !user.token) {
       setUnauthorized(true);
       navigate("/auth/signin");
     }
