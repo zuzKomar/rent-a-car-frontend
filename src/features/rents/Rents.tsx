@@ -49,8 +49,8 @@ export default function RentsPage() {
         })
         .then((data) => {
           console.log(data);
-          setRents([...data]);
-          setNoRents(data.length === 0);
+          setRents([...data.rents]);
+          setNoRents(data.rents.length === 0);
         });
     }
   }, []);

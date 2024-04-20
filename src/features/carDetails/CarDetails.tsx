@@ -33,7 +33,10 @@ const CarDetails = () => {
       },
     })
       .then((res) => res.json())
-      .then((res) => setCarData(res.body));
+      .then((res) => {
+        console.log(res);
+        setCarData(res);
+      });
   }, []);
 
   //const nextCarRents = car?.rents.length > 0 ? car.rents : []; //filter all rents that are gonna be in the future, pass it to modals

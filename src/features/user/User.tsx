@@ -50,7 +50,7 @@ export default function UserPage() {
         .then((res) => res.json())
         .then((res) => {
           console.log(res);
-          setFormData(res.body);
+          setFormData(res);
         });
     }
   }, []);
