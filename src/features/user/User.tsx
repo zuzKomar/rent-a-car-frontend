@@ -38,7 +38,7 @@ export default function UserPage() {
 
   useEffect(() => {
     if (user) {
-      fetch(`${process.env.REACT_APP_NEST_URL}/users/${user.email}`, {
+      fetch(`${process.env.REACT_APP_NEST_URL}/users/${email}}`, {
         mode: "cors",
         cache: "no-store",
         headers: {

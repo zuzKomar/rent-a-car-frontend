@@ -41,7 +41,6 @@ export default function Signin() {
     })
       .then((res) => {
         const userText = res.text();
-        console.log(userText);
         return userText;
       })
       .then((res) => {

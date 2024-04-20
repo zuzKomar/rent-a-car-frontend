@@ -5,7 +5,7 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const currentPath = location.pathname.split("/")[1];
-  const user: any = sessionStorage.getItem("user");
+  const user: any = JSON.parse(sessionStorage.getItem("user") || "");
 
   const handleLogout = async () =>
     await fetch(`${process.env.REACT_APP_NEST_URL}/auth/login`, {

@@ -17,7 +17,7 @@ const PageContainer = ({
   const [unauthorized, setUnauthorized] = useState(false);
   const navigate = useNavigate();
 
-  const user = sessionStorage.getItem("user");
+  const user = JSON.parse(sessionStorage.getItem("user") || "");
   console.log(user);
 
   useEffect(() => {
