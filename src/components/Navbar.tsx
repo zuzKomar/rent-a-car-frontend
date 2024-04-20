@@ -5,11 +5,10 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const currentPath = location.pathname.split("/")[1];
-  const user: any = JSON.parse(sessionStorage.getItem("user") || "{}");
+  const user: any = JSON.parse(sessionStorage.getItem("user") || '""');
 
   const handleLogout = async () =>
-    await fetch(`${process.env.REACT_APP_NEST_URL}/auth/login`, {
-      method: "POST",
+    await fetch(`${process.env.REACT_APP_NEST_URL}/auth/logout`, {
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
@@ -17,7 +16,6 @@ const Navbar = () => {
       mode: "cors",
       credentials: "include",
       cache: "no-store",
-      body: JSON.stringify({ email: "email", password: "password" }),
     })
       .then(() => {
         navigate("/");
