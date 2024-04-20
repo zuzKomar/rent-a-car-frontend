@@ -31,10 +31,11 @@ const CarDetails = () => {
         Authorization: "Bearer " + token,
       },
     })
-      .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        setCarData({ ...res });
+        return res.json();
+      })
+      .then((data) => {
+        setCarData(data);
       });
   }, []);
 
