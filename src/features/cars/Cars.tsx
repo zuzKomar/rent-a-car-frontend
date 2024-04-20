@@ -103,7 +103,7 @@ export default function Cars() {
 
     const url = new URL(window.location.href);
     const pathname = url.pathname.slice(1) + newUrl.slice(0, -1);
-
+    console.log(pathname);
     if (pathname.length > 5) {
       await fetch(`${process.env.REACT_APP_NEST_URL}/${pathname}`, {
         method: "POST",
