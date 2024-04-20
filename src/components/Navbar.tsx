@@ -18,6 +18,7 @@ const Navbar = () => {
       cache: "no-store",
     })
       .then(() => {
+        sessionStorage.clear();
         navigate("/");
       })
       .catch((err) => {
