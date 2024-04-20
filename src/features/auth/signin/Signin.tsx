@@ -45,18 +45,7 @@ export default function Signin() {
         return userText;
       })
       .then((res) => {
-        const user = JSON.parse(res);
-        sessionStorage.setItem(
-          "user",
-          JSON.stringify({
-            id: user.id,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            token: user.token,
-            refreshToken: user.refreshToken,
-          })
-        );
+        sessionStorage.setItem("user", res);
         navigate("/");
       })
       .catch((err) => {
