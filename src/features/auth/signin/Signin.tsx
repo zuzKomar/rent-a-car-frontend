@@ -35,6 +35,7 @@ export default function Signin() {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000",
       },
       body: JSON.stringify({ email: data.email, password: data.password }),
     })
