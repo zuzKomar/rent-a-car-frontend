@@ -23,7 +23,6 @@ const CarDetails = () => {
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_NEST_URL}/cars/${carId}`, {
-      method: "POST",
       mode: "cors",
       cache: "no-store",
       headers: {

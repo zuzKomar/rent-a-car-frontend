@@ -26,7 +26,7 @@ export default function UserPage() {
   );
   const token = user.token;
   const email = user.email;
-  console.log(user);
+  console.log(email);
   let loginCredentialsChanged = false;
 
   const {
