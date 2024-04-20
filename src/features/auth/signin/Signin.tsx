@@ -35,14 +35,13 @@ export default function Signin() {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin":
-          "https://rent-a-car-frontend-three.vercel.app/",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({ email: data.email, password: data.password }),
     })
       .then((res) => {
-        const userText = res.text();
-        return userText;
+        console.log(res.json());
+        return res.json();
       })
       .then((res) => {
         const user = JSON.parse(res);
