@@ -16,7 +16,7 @@ import TableFilters from "./components/TableFilters";
 import { Car } from "../../types/Car";
 import { CarFiltersType } from "../../types/UserForm";
 import { useNavigate } from "react-router-dom";
-import styles from "../../styles/Cars.module.scss";
+import sleep from "sleep-promise";
 
 export default function Cars() {
   const navigate = useNavigate();
@@ -55,7 +55,8 @@ export default function Cars() {
         .then((data) => {
           setCarData([...data]);
           setNoCars(data.length === 0);
-        });
+        })
+        .then(sleep(3000));
     }
   }, []);
 
@@ -201,26 +202,6 @@ export default function Cars() {
           </TableBody>
         </TableView>
       )}
-      {/* {carData.length > 0 && !noCars && (
-        <table className={styles.car_table}>
-          <thead>
-            <tr>
-              {columns.map((el) => (
-                <th>{el.name}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {carData.map((el) => (
-              <tr>
-                {Object.entries(el).map(([key, value]) => (
-                  <td>{value}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )} */}
       {carData.length === 0 && noCars && <Header>No cars available!</Header>}
     </PageContainer>
   );
