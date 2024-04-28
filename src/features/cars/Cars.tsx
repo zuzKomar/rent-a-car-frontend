@@ -52,7 +52,7 @@ export default function Cars() {
         .then((res) => {
           return res.json();
         })
-        .then(sleep(3000))
+        // .then(sleep(3000))
         .then((data) => {
           setCarData([...data]);
           setNoCars(data.length === 0);
