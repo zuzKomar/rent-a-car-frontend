@@ -178,7 +178,7 @@ export default function Cars() {
           />
         </View>
       )}
-      {/* {carData.length > 0 && !noCars && (
+      {carData.length > 0 && !noCars && (
         <TableView
           aria-label="Table with car available for rent"
           flex
@@ -200,8 +200,8 @@ export default function Cars() {
             )}
           </TableBody>
         </TableView>
-      )} */}
-      {carData.length > 0 && !noCars && (
+      )}
+      {/* {carData.length > 0 && !noCars && (
         <table className={styles.car_table}>
           <thead>
             <tr>
@@ -220,7 +220,7 @@ export default function Cars() {
             ))}
           </tbody>
         </table>
-      )}
+      )} */}
       {carData.length === 0 && noCars && <Header>No cars available!</Header>}
     </PageContainer>
   );
