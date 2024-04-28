@@ -24,11 +24,11 @@ const CarDetails = () => {
   useEffect(() => {
     fetch(`${process.env.REACT_APP_NEST_URL}/cars/${carId}`, {
       mode: "cors",
-      cache: "no-store",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer " + token,
+        "Cache-Control": "no-store",
       },
     })
       .then((res) => {
@@ -80,6 +80,7 @@ const CarDetails = () => {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer " + token,
+        "Cache-Control": "no-store",
       },
     })
       .then((res) => res.json())

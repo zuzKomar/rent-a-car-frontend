@@ -42,11 +42,11 @@ export default function Cars() {
       fetch(`${process.env.REACT_APP_NEST_URL}/cars`, {
         method: "GET",
         mode: "cors",
-        cache: "no-store",
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
           Authorization: "Bearer " + token,
+          "Cache-Control": "no-store",
         },
       })
         .then((res) => {
@@ -113,6 +113,7 @@ export default function Cars() {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
           Authorization: "Bearer " + token,
+          "Cache-Control": "no-store",
         },
         body: JSON.stringify({ pathname: pathname }),
       })
@@ -139,6 +140,7 @@ export default function Cars() {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer " + token,
+        "Cache-Control": "no-store",
       },
     })
       .then((res) => {

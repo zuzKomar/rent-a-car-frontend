@@ -12,10 +12,10 @@ const Navbar = () => {
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "no-store",
       },
       mode: "cors",
       credentials: "include",
-      cache: "no-store",
     })
       .then(() => {
         sessionStorage.clear();

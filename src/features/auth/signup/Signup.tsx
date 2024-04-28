@@ -83,6 +83,7 @@ export default function Signup() {
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "no-store",
       },
     })
       .then((res) => res.json())

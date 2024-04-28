@@ -41,11 +41,11 @@ export default function UserPage() {
     if (user) {
       fetch(`${process.env.REACT_APP_NEST_URL}/users/${email}`, {
         mode: "cors",
-        cache: "no-store",
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
           Authorization: "Bearer " + token,
+          "Cache-Control": "no-store",
         },
       })
         .then((res) => {
@@ -93,6 +93,7 @@ export default function UserPage() {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
         Authorization: "Bearer " + token,
+        "Cache-Control": "no-store",
       },
     })
       .then((res) => res.json())

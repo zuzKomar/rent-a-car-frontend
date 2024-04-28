@@ -36,6 +36,7 @@ export default function Signin() {
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "no-store",
       },
       body: JSON.stringify({ email: data.email, password: data.password }),
     })
