@@ -16,6 +16,7 @@ import TableFilters from "./components/TableFilters";
 import { Car } from "../../types/Car";
 import { CarFiltersType } from "../../types/UserForm";
 import { useNavigate } from "react-router-dom";
+import styles from "../../styles/Cars.module.scss";
 
 export default function Cars() {
   const navigate = useNavigate();
@@ -175,7 +176,7 @@ export default function Cars() {
           />
         </View>
       )}
-      {carData.length > 0 && !noCars && (
+      {/* {carData.length > 0 && !noCars && (
         <TableView
           aria-label="Table with car available for rent"
           flex
@@ -197,6 +198,26 @@ export default function Cars() {
             )}
           </TableBody>
         </TableView>
+      )} */}
+      {carData.length > 0 && !noCars && (
+        <table className={styles.car_table}>
+          <thead>
+            <tr>
+              {columns.map((el) => (
+                <th>{el.name}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {carData.map((el) => (
+              <tr>
+                {Object.entries(el).map(([key, value]) => (
+                  <td>{value}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
       {carData.length === 0 && noCars && <Header>No cars available!</Header>}
     </PageContainer>
