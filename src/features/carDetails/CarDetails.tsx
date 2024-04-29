@@ -35,20 +35,17 @@ const CarDetails = () => {
         return res.json();
       })
       .then((data) => {
+        console.log(data);
         setCarData(data);
       });
   }, []);
 
-  //const nextCarRents = car?.rents.length > 0 ? car.rents : []; //filter all rents that are gonna be in the future, pass it to modals
-  //TODO: car details fetch to be added
   function handleCarRental(
     carId: number,
     userId: number,
     date: any,
     dueDate: any
   ) {
-    //check if this car is available this time
-    //fetch post -> create new rent
     const createRentDto = {
       userId,
       carId,
