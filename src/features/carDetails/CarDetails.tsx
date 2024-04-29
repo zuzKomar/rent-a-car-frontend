@@ -13,6 +13,7 @@ const CarDetails = () => {
   const { carId } = useParams();
   const [open, setOpen] = useState(false);
   const [carData, setCarData] = useState<CarData>();
+  console.log("carData:", carData);
 
   const [user, setUser] = useState(
     JSON.parse(sessionStorage.getItem("user") || '""')
