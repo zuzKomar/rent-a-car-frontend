@@ -1,3 +1,5 @@
+import { RentMinifiedVersion } from "./RentMinifiedVersion";
+
 export type Car = {
   id: number;
   brand: string;
@@ -10,5 +12,5 @@ export type Car = {
   transmission: string;
   photo?: string | null;
   usable: boolean;
-  rents?: any[];
+  rents?: RentMinifiedVersion[] | [];
 };
