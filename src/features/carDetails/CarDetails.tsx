@@ -130,76 +130,78 @@ const CarDetails = () => {
 
   return (
     <PageContainer checkAuthorized>
-      <View UNSAFE_style={{ backgroundColor: "rgba(0,0,0,0.5)" }} width="70%">
-        <Flex direction="row" justifyContent="space-evenly">
-          <Flex direction="column" gap="size-150" wrap>
-            <TextField
-              label="Brand"
-              defaultValue={carData ? carData.brand : ""}
-              isDisabled={true}
-            />
-            <TextField
-              label="Model"
-              defaultValue={carData ? carData.model : ""}
-              isDisabled={true}
-            />
-            <TextField
-              label="Production year"
-              defaultValue={carData ? carData.productionYear.toString() : ""}
-              isDisabled={true}
-            />
-            <TextField
-              label="Power"
-              defaultValue={carData ? carData.power.toString() : ""}
-              isDisabled={true}
-            />
-            <TextField
-              label="Capacity"
-              defaultValue={carData ? carData.capacity.toString() : ""}
-              isDisabled={true}
-            />
-            <TextField
-              label="Number of seats"
-              defaultValue={
-                carData && carData.numberOfSeats
-                  ? carData.numberOfSeats.toString()
-                  : ""
-              }
-              isDisabled={true}
-            />
-            <TextField
-              label="Transmission"
-              defaultValue={carData ? carData.transmission : ""}
-              isDisabled={true}
-            />
-            <TextField
-              label="Cost of rent per day"
-              defaultValue={carData ? carData.costPerDay.toString() : ""}
-              isDisabled={true}
-            />
-          </Flex>
-          <Flex direction="column" marginTop="20px">
-            <img src={photoPath} alt="car photo" width="240px" />
-            <DialogTrigger type="modal">
-              <Button
-                variant="primary"
-                marginTop="20px"
-                onPress={() => setOpen(true)}>
-                <Car />
-                <Text>Rent me!</Text>
-              </Button>
-              <RentModal
-                carId={carData ? carData.id : 0}
-                userId={userId || 1}
-                costPerDay={carData ? carData.costPerDay : 0}
-                closeHandler={setOpen}
-                confirmHandler={handleCarRental}
-                checkAvailabilityHandler={handleCarAvailabilityCheck}
+      {carData && (
+        <View UNSAFE_style={{ backgroundColor: "rgba(0,0,0,0.5)" }} width="70%">
+          <Flex direction="row" justifyContent="space-evenly">
+            <Flex direction="column" gap="size-150" wrap>
+              <TextField
+                label="Brand"
+                defaultValue={carData ? carData.brand : ""}
+                isDisabled={true}
               />
-            </DialogTrigger>
+              <TextField
+                label="Model"
+                defaultValue={carData ? carData.model : ""}
+                isDisabled={true}
+              />
+              <TextField
+                label="Production year"
+                defaultValue={carData ? carData.productionYear.toString() : ""}
+                isDisabled={true}
+              />
+              <TextField
+                label="Power"
+                defaultValue={carData ? carData.power.toString() : ""}
+                isDisabled={true}
+              />
+              <TextField
+                label="Capacity"
+                defaultValue={carData ? carData.capacity.toString() : ""}
+                isDisabled={true}
+              />
+              <TextField
+                label="Number of seats"
+                defaultValue={
+                  carData && carData.numberOfSeats
+                    ? carData.numberOfSeats.toString()
+                    : ""
+                }
+                isDisabled={true}
+              />
+              <TextField
+                label="Transmission"
+                defaultValue={carData ? carData.transmission : ""}
+                isDisabled={true}
+              />
+              <TextField
+                label="Cost of rent per day"
+                defaultValue={carData ? carData.costPerDay.toString() : ""}
+                isDisabled={true}
+              />
+            </Flex>
+            <Flex direction="column" marginTop="20px">
+              <img src={photoPath} alt="car photo" width="240px" />
+              <DialogTrigger type="modal">
+                <Button
+                  variant="primary"
+                  marginTop="20px"
+                  onPress={() => setOpen(true)}>
+                  <Car />
+                  <Text>Rent me!</Text>
+                </Button>
+                <RentModal
+                  carId={carData ? carData.id : 0}
+                  userId={userId || 1}
+                  costPerDay={carData ? carData.costPerDay : 0}
+                  closeHandler={setOpen}
+                  confirmHandler={handleCarRental}
+                  checkAvailabilityHandler={handleCarAvailabilityCheck}
+                />
+              </DialogTrigger>
+            </Flex>
           </Flex>
-        </Flex>
-      </View>
+        </View>
+      )}
     </PageContainer>
   );
 };
