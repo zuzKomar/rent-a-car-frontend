@@ -13,7 +13,6 @@ const CarDetails = () => {
   const { carId } = useParams();
   const [open, setOpen] = useState(false);
   const [carData, setCarData] = useState<CarData>();
-  console.log("carData:", carData);
 
   const [user, setUser] = useState(
     JSON.parse(sessionStorage.getItem("user") || '""')
@@ -36,7 +35,6 @@ const CarDetails = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         setCarData(data);
       });
   }, []);
@@ -180,7 +178,7 @@ const CarDetails = () => {
               />
             </Flex>
             <Flex direction="column" marginTop="20px">
-              <img src={photoPath} alt="car photo" width="240px" />
+              <img src={require(photoPath)} alt="car photo" width="240px" />
               <DialogTrigger type="modal">
                 <Button
                   variant="primary"
