@@ -18,7 +18,7 @@ const CarDetails = () => {
     JSON.parse(sessionStorage.getItem("user") || '""')
   );
   const token = user.token;
-  const photoPath = `/static/${carData ? carData.photo : ""}.png`;
+  const photoPath = `../../img/${carData ? carData.photo : ""}.png`;
   const userId = user.id;
 
   useEffect(() => {
