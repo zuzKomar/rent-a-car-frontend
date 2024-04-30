@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  background-image: url(`${process.env.PUBLIC_URL}/img/4.webp`);
+  background-image: url("../../img/4.webp");
   background-size: 100%;
   background-repeat: no-repeat;
 }
