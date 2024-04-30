@@ -18,7 +18,6 @@ const CarDetails = () => {
     JSON.parse(sessionStorage.getItem("user") || '""')
   );
   const token = user.token;
-  const photoPath = carData ? `../../img/${carData.photo}.png` : "";
   const userId = user.id;
 
   useEffect(() => {
@@ -178,7 +177,11 @@ const CarDetails = () => {
               />
             </Flex>
             <Flex direction="column" marginTop="20px">
-              <img src={photoPath} alt="car-photo" width="240px" />
+              <img
+                src={`../../img/${carData.photo}.png`}
+                alt="car-photo"
+                width="240px"
+              />
               <DialogTrigger type="modal">
                 <Button
                   variant="primary"
