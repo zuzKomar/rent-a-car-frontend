@@ -178,7 +178,7 @@ const CarDetails = () => {
             </Flex>
             <Flex direction="column" marginTop="20px">
               <img
-                src={`../../img/${carData.photo}.png`}
+                src={`${process.env.PUBLIC_URL}/img/${carData.photo}.png`}
                 alt="car-photo"
                 width="240px"
               />
