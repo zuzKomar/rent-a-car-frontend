@@ -8,6 +8,7 @@ import RentModal from "../cars/components/RentModal";
 import { DialogTrigger } from "@adobe/react-spectrum";
 import { useParams } from "react-router-dom";
 import PageContainer from "../../components/PageContainer/PageContainer";
+import { Img } from "react-image";
 
 const CarDetails = () => {
   const { carId } = useParams();
@@ -177,7 +178,7 @@ const CarDetails = () => {
               />
             </Flex>
             <Flex direction="column" marginTop="20px">
-              <img
+              <Img
                 src={`${process.env.PUBLIC_URL}/img/${carData.photo}.png`}
                 alt="car-photo"
                 width="240px"
